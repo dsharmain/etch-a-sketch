@@ -1,47 +1,59 @@
+let size = 16;
 const container = document.querySelector(".container");
 const divlist = [];
 const div = [];
 let a = 0;
-for (let i = 0; i < 16; i++) {
-    divlist[i] = document.createElement("div");
-    divlist[i].className="divlist"+i;
-    container.appendChild(divlist[i]);
-    const nest = document.querySelector(".divlist"+i);
+const button = document.querySelector("#size");
+button.addEventListener("click" , () => {
     
-    
-    for (let j = 0; j < 16; j++){
+    size = prompt("Enter the new size you would like");
+    console.log(size);
+    clearGrid();
+    gridCreate(size);
+})
+gridCreate(size);
+function gridCreate(size) {
+    for (let i = 0; i < size; i++) {
+        divlist[i] = document.createElement("div");
+        divlist[i].className="divlist"+i;
+        container.appendChild(divlist[i]);
+        const nest = document.querySelector(".divlist"+i);
         
-        div[j] = document.createElement("div");
-        div[j].style.backgroundColor= "green";
-        div[j].style.height = "10px";
-        div[j].style.borderWidth = "1px";
-        div[j].style.borderColor = "#070b11";
-        div[j].style.borderStyle = "solid";
-        div[j].style.height = "10px";
-        div[j].style.width = "10px";
-        div[j].style.padding = "1px";
-        div[j].style.margin = "1px";
-        div[j].className = "divlist"+i+"div"+j;
-        // div[j].textContent = a;
-        // a++;
-        nest.appendChild(div[j]);
-        const eventList = document.querySelector(".divlist"+i+"div"+j);
-        eventList.addEventListener("mouseover" , () => {
-            console.log("divlist"+i+"div"+j);
-            console.log(eventList.style.backgroundColor);
+        
+        for (let j = 0; j < size; j++){
             
-            if (eventList.style.backgroundColor == 'green') {
-                eventList.style.backgroundColor = 'yellow';
-            }
-            else {
-                eventList.style.backgroundColor = 'pink';
-            }
-            
-        });
+            div[j] = document.createElement("div");
+            div[j].style.backgroundColor= "green";
+            div[j].style.height = "10px";
+            div[j].style.borderWidth = "1px";
+            div[j].style.borderColor = "#070b11";
+            div[j].style.borderStyle = "solid";
+            div[j].style.height = "10px";
+            div[j].style.width = "10px";
+            div[j].style.padding = "1px";
+            div[j].style.margin = "1px";
+            div[j].className = "divlist"+i+"div"+j;
+            // div[j].textContent = a;
+            // a++;
+            nest.appendChild(div[j]);
+            const eventList = document.querySelector(".divlist"+i+"div"+j);
+            eventList.addEventListener("mouseover" , () => {
+                console.log("divlist"+i+"div"+j);
+                console.log(eventList.style.backgroundColor);
+                
+                if (eventList.style.backgroundColor == 'green') {
+                    eventList.style.backgroundColor = 'yellow';
+                }
+                else {
+                    eventList.style.backgroundColor = 'pink';
+                }
+                
+            });
+        }
+        
     }
-    
 }
-
-function colorPick(){
-
+function clearGrid() {
+    const doc = document.querySelector(".container");
+    doc.textContent = '';
 }
