@@ -1,0 +1,23 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #40E0D0;
+    height: 30px;
+    
+    padding: 30px;
+    border-width: 5px;
+    border-color: #800000;
+    border-style: solid;
+    margin: 5px;
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 960px;
+    width: 960px;
+    background-color: antiquewhite;
+
+}
